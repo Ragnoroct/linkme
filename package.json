@@ -5,6 +5,15 @@
     "icon": "icon.png",
     "version": "0.0.1",
     "publisher": "ragnoroct",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ragnoroct/linkme.git"
+    },
+    "author": {
+        "name": "Will Bender",
+        "email": "willpbender@gmail.com"
+    },
+    "license": "MIT",
     "engines": {
         "vscode": "^1.20.0"
     },

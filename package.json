@@ -2,6 +2,7 @@
     "name": "linkme",
     "displayName": "linkme",
     "description": "",
+    "icon": "icon.png",
     "version": "0.0.1",
     "publisher": "ragnoroct",
     "engines": {

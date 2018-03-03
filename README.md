@@ -1,6 +1,6 @@
 # linkme README
 
-This is the README for your extension "linkme". After writing up a brief description, we recommend including the following sections.
+This is my extension
 
 ## Features
 

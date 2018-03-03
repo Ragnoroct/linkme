@@ -11,14 +11,37 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "*"
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [
+        "configuration": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "title": "Linkme configuration",
+                "properties": {
+                    "linkme.fieldsOnly": {
+                        "type": "boolean",
+                        "description": "Match fields seperated by spaces.",
+                        "default": true
+                    },
+                    "linkme.rules": {
+                        "type": "array",
+                        "description": "List of regex and url combinations.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "match": { 
+                                    "type": "string",
+                                    "description": "The regex to match the text and capture groups."
+                                },
+                                "result": { 
+                                    "type": "string",
+                                    "description": "The url that uses the captured groups to form a url."
+                                }
+                            }
+                        }
+                    }
+                }
             }
         ]
     },

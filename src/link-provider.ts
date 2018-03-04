@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { getConfiguration } from './configuration';
+import { Configuration } from './configuration';
 import { Rule } from './rule';
 
 class Field {
@@ -14,16 +14,23 @@ class Field {
 
 export class LinkProvider implements vscode.DocumentLinkProvider {
     private get fieldsOnly(): boolean { 
-        return getConfiguration().fieldsOnly;
+        return this.configuration.fieldsOnly;
     }
+    
     private get rules(): Rule[] {
-        return getConfiguration().rules;
+        return this.configuration.rules;
+    }
+
+    configuration: Configuration;
+
+    public constructor(configuration: Configuration) {
+        this.configuration = configuration;
     }
     
     public provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.DocumentLink[]> {
         return document.getText().split('\n')
             .reduce(
-                (matches, line, no) => this.getMatchesOnLine(this.rules, line, no, this.fieldsOnly, matches),
+                (matches, line, lineNumber) => this.getMatchesOnLine(this.rules, line, lineNumber, this.fieldsOnly, matches),
                 [] as vscode.DocumentLink[]
             );
     }

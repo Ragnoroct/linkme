@@ -57,11 +57,16 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
                 let match;
                 while(true) {
                     match = expr.exec(field.value);
+                    
                     if (match === null) {
                         break;
                     }
+
+                    if (fieldsOnly && match[0].length !== field.value.length) {
+                        break;
+                    }
+
                     if (match !== null) {
-                        //Set character index range for link
                         var start = field.pos + match.index;
                         var end = field.pos + match.index + match[0].length;
 
@@ -73,7 +78,6 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
                             new vscode.Position(lineNo, end)
                         );
         
-                        //Form urlstring
                         var url = rule.result;
                         for (var i:number = 1; i < match.length; i++) {
                             url = url.replace(`\\${i}`, match[i]);

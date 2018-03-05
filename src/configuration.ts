@@ -1,9 +1,14 @@
 import * as vscode from 'vscode';
 import { Rule } from './rule';
 
-export interface Configuration {
+export class Configuration {
     fieldsOnly: boolean;
     rules: Rule[];
+
+    constructor(fieldsOnly: boolean, rules: Rule[]) {
+        this.fieldsOnly = fieldsOnly;
+        this.rules = rules;
+    }
 }
 
 export function getConfiguration(): Configuration {

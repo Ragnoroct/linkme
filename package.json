@@ -36,15 +36,17 @@
                     },
                     "linkme.rules": {
                         "type": "array",
-                        "description": "List of regex and url combinations.",
+                        "description": "List of regex and url combinations. Ex. [ { \"regex\": \"DEV-(\\d{4})\", \"url\": \"https://mysite.com/path/\\\\1\" ]",
                         "items": {
                             "type": "object",
+                            "additionalProperties": false,
+                            "required": [ "regex", "url" ],
                             "properties": {
-                                "match": {
+                                "regex": {
                                     "type": "string",
                                     "description": "The regex to match the text and capture groups."
                                 },
-                                "result": {
+                                "url": {
                                     "type": "string",
                                     "description": "The url that uses the captured groups to form a url."
                                 }

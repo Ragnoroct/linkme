@@ -51,7 +51,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
         }
         
         rules.forEach(rule => {
-            const regexString = rule.match;
+            const regexString = rule.regex;
             const expr = new RegExp(regexString, 'gi');
             fields.forEach(field => {
                 let match;
@@ -78,7 +78,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
                             new vscode.Position(lineNo, end)
                         );
         
-                        var url = rule.result;
+                        var url = rule.url;
                         for (var i:number = 1; i < match.length; i++) {
                             url = url.replace(`\\${i}`, match[i]);
                         }

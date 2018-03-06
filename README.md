@@ -3,60 +3,33 @@
 
 [![Travis](https://img.shields.io/travis/Ragnoroct/linkme.svg)](https://github.com/Ragnoroct/linkme)
 
-This VS Code extension allows hyperlinking text based on regular expresions.
+This VS Code extension allows hyperlinking text based on regular expressions.
 
 ## Features
 
 ![Linkme Settings Demo](./images/screenshots/settings.gif)
+![Linkme Settings Demo](./images/screenshots/example.gif)
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `linkme.fieldsOnly`: enable/disable matching words as fields or sections of lines.
+* `linkme.rules`: to `[ { "pattern": "", "url": "" } ]`<br>
+    Example: `[ { "pattern": "S:(.*)", "https://google.com/search?q=\\1" }`<br>
+    Result: `"S:meaning+of+lives"` -> `"https://google.com/search?q=what+is+life"`<br>
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Tips
+* Test your regular expressions online (google "regex tester" and use the javascript regex engine).
+* DON'T set `fieldsOnly` to `false` unless you know what you're doing.
+* Make sure to escape special json characters.<br> 
+    `/file\.php/` in json is `"file\\.php"`
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of linkme

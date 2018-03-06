@@ -31,20 +31,20 @@
                 "properties": {
                     "linkme.fieldsOnly": {
                         "type": "boolean",
-                        "description": "Match fields seperated by spaces.",
+                        "description": "Match only fields seperated by spaces. (warning: Set to false for advanced regex usage only)",
                         "default": true
                     },
                     "linkme.rules": {
                         "type": "array",
-                        "description": "List of regex and url combinations. Ex. [ { \"regex\": \"DEV-(\\d{4})\", \"url\": \"https://mysite.com/path/\\\\1\" ]",
+                        "description": "List of pattern and url combinations.\nEx. [ { \"pattern\": \"DEV-(\\d{4})\", \"url\": \"https://mysite.com/path/\\\\1\" ]",
                         "items": {
                             "type": "object",
                             "additionalProperties": false,
-                            "required": [ "regex", "url" ],
+                            "required": [ "pattern", "url" ],
                             "properties": {
-                                "regex": {
+                                "pattern": {
                                     "type": "string",
-                                    "description": "The regex to match the text and capture groups."
+                                    "description": "The pattern to match the text and capture groups."
                                 },
                                 "url": {
                                     "type": "string",

@@ -1,9 +1,9 @@
 export class Rule {
-    regex: string;
+    pattern: string;
     url: string;
 
-    constructor(regex: string, url: string) {
-        this.regex = regex;
+    constructor(pattern: string, url: string) {
+        this.pattern = pattern;
         this.url = url;
     } 
 }

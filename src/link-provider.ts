@@ -51,7 +51,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
         }
         
         rules.forEach(rule => {
-            const regexString = rule.regex;
+            const regexString = rule.pattern;
             const expr = new RegExp(regexString, 'gi');
             fields.forEach(field => {
                 let match;

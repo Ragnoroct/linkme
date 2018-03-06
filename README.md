@@ -23,7 +23,7 @@ This extension contributes the following settings:
 
 ## Tips
 * Test your regular expressions online (google "regex tester" and use the javascript regex engine).
-* DON'T set `fieldsOnly` to `false` unless you know what you're doing.
+* DON'T set `fieldsOnly` to `false` unless you know what you're doing. Only for users with experience with regular expresssions.
 * Make sure to escape special json characters.<br> 
     `/file\.php/` in json is `"file\\.php"`
 

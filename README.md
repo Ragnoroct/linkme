@@ -1,5 +1,8 @@
 # linkme README
 
+
+[![Travis](https://img.shields.io/travis/Ragnoroct/linkme.svg)](https://github.com/Ragnoroct/linkme)
+
 This VS Code extension allows hyperlinking text based on regular expresions.
 
 ## Features

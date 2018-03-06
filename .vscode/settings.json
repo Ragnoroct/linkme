@@ -4,6 +4,9 @@
         "out": true, // set this to true to hide the "out" folder with the compiled JS files
         "node_modules": true,
         ".vscode-test": true,
+        "*.vsix": true,
+        "linkme.zip": true,
+        "linkme.tar.gz": true,
     },
     "search.exclude": {
         "out": true // set this to false to include "out" folder in search results

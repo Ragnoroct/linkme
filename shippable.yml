@@ -7,4 +7,7 @@ build:
   ci:
     - npm install
     - npm run vscode:prepublish
+    - export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - sleep 3
     - npm test

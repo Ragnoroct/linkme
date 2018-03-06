@@ -14,17 +14,17 @@ class Field {
 
 export class LinkProvider implements vscode.DocumentLinkProvider {
     private get fieldsOnly(): boolean { 
-        return this.configuration.fieldsOnly;
+        return this.getConfiguration().fieldsOnly;
     }
     
     private get rules(): Rule[] {
-        return this.configuration.rules;
+        return this.getConfiguration().rules;
     }
 
-    configuration: Configuration;
+    getConfiguration: () => Configuration;
 
-    public constructor(configuration: Configuration) {
-        this.configuration = configuration;
+    public constructor(getConfiguration: () => Configuration) {
+        this.getConfiguration = getConfiguration;
     }
     
     public provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.DocumentLink[]> {
@@ -40,7 +40,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
 
         if (fieldsOnly) {
             var searchPos = 0;
-            var fieldValues = line.match(/[^ ]+/g) || [];
+            var fieldValues = line.match(/[^\s]+/g) || [];
             fields = fieldValues.map(value => {
                 var pos = line.indexOf(value, searchPos);
                 searchPos = pos + value.length;
@@ -57,12 +57,8 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
                 let match;
                 while(true) {
                     match = expr.exec(field.value);
-                    
-                    if (match === null) {
-                        break;
-                    }
 
-                    if (fieldsOnly && match[0].length !== field.value.length) {
+                    if (match === null || (fieldsOnly && match[0].length !== field.value.length)) {
                         break;
                     }
 
@@ -91,6 +87,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
                 }
             });
         });
+
         return matches;
     }
 

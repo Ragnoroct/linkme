@@ -27,9 +27,9 @@ This extension contributes the following settings:
 * Make sure to escape special json characters.<br> 
     `/file\.php/` in json is `"file\\.php"`
 
-## Release Notes
+<!-- ## Release Notes
 
 
 ### 1.0.0
 
-Initial release of linkme
+Initial release of linkme -->

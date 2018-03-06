@@ -19,7 +19,7 @@ This extension contributes the following settings:
 * `linkme.fieldsOnly`: enable/disable matching words as fields or sections of lines.
 * `linkme.rules`: to `[ { "pattern": "", "url": "" } ]`<br>
     Example: `[ { "pattern": "S:(.*)", "https://google.com/search?q=\\1" }`<br>
-    Result: `"S:meaning+of+lives"` -> `"https://google.com/search?q=what+is+life"`<br>
+    Result: `"S:never+gonna+give+you+up"` links to [https://google.com/search?q=never+gonna+give+you+up](https://google.com/search?q=never+gonna+give+you+up)<br>
 
 ## Tips
 * Test your regular expressions online (google "regex tester" and use the javascript regex engine).

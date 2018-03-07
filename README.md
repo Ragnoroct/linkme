@@ -7,7 +7,6 @@ This VS Code extension allows hyperlinking text based on regular expressions.
 
 ## Features
 
-![Linkme Settings Demo](./images/screenshots/settings.gif)
 ![Linkme Settings Demo](./images/screenshots/example.gif)
 
 

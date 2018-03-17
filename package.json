@@ -3,7 +3,7 @@
     "displayName": "linkme",
     "description": "",
     "icon": "icon.png",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "ragnoroct",
     "repository": {
         "type": "git",
@@ -40,7 +40,10 @@
                         "items": {
                             "type": "object",
                             "additionalProperties": false,
-                            "required": [ "pattern", "url" ],
+                            "required": [
+                                "pattern",
+                                "url"
+                            ],
                             "properties": {
                                 "pattern": {
                                     "type": "string",

@@ -14,17 +14,27 @@ class Field {
 
 export class LinkProvider implements vscode.DocumentLinkProvider {
     private get fieldsOnly(): boolean { 
-        return this.getConfiguration().fieldsOnly;
+        return this.configuration.fieldsOnly;
     }
     
     private get rules(): Rule[] {
-        return this.getConfiguration().rules;
+        return this.configuration.rules;
     }
+
+    configuration: Configuration;
 
     getConfiguration: () => Configuration;
 
     public constructor(getConfiguration: () => Configuration) {
         this.getConfiguration = getConfiguration;
+
+        this.configuration = getConfiguration();
+        vscode.workspace.onDidChangeConfiguration(this.updateConfiguration);
+    }
+
+    private updateConfiguration()
+    {
+        this.configuration = this.getConfiguration();
     }
     
     public provideDocumentLinks(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.DocumentLink[]> {

@@ -29,7 +29,7 @@ export class LinkProvider implements vscode.DocumentLinkProvider {
         this.getConfiguration = getConfiguration;
 
         this.configuration = getConfiguration();
-        vscode.workspace.onDidChangeConfiguration(this.updateConfiguration);
+        vscode.workspace.onDidChangeConfiguration(this.updateConfiguration.bind(this));
     }
 
     private updateConfiguration()
